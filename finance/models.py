@@ -70,11 +70,7 @@ class Exchange(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # api_base_url
-    # websocket_url
-    # logo
-    # country
+    
 
     def __str__(self):
         return self.name
@@ -104,12 +100,7 @@ class Asset(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # icon
-    # coingecko_id
-    # market_cap
-    # circulating_supply
-
+    
     def __str__(self):
         return self.symbol
 
@@ -147,11 +138,7 @@ class TradingPair(models.Model):
     class Meta:
         unique_together = ("exchange", "symbol")
 
-    # TODO:
-    # tick_size
-    # step_size
-    # minimum_order
-    # maximum_order
+    
 
     def __str__(self):
         return self.symbol
@@ -193,11 +180,7 @@ class Wallet(models.Model):
     class Meta:
         unique_together = ("user", "asset")
 
-    # TODO:
-    # average_buy_price
-    # realized_pnl
-    # unrealized_pnl
-
+    
     def __str__(self):
         return f"{self.user} - {self.asset}"
 
@@ -230,12 +213,6 @@ class Portfolio(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
-    # TODO:
-    # today's pnl
-    # weekly pnl
-    # monthly pnl
-    # roi
-
 
 # ==========================================================
 # Position
@@ -267,11 +244,6 @@ class Position(models.Model):
 
     opened_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # leverage
-    # liquidation_price
-    # margin
-    # isolated/cross
 
     def __str__(self):
         return f"{self.user} - {self.pair}"
@@ -356,12 +328,7 @@ class Order(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # filled_quantity
-    # stop_price
-    # trigger_price
-    # exchange_order_id
-    # client_order_id
+
 
     def __str__(self):
         return str(self.id)
@@ -404,10 +371,7 @@ class Trade(models.Model):
 
     executed_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # maker/taker
-    # pnl
-    # commission_asset
+  
 
     def __str__(self):
         return str(self.id)
@@ -449,10 +413,7 @@ class Transaction(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # status
-    # blockchain_tx_hash
-    # notes
+   
 
     def __str__(self):
         return f"{self.user} - {self.transaction_type}"
@@ -490,10 +451,7 @@ class Candle(models.Model):
     class Meta:
         unique_together = ("pair", "interval", "timestamp")
 
-    # TODO:
-    # quote_volume
-    # trades_count
-    # taker_buy_volume
+
 
     def __str__(self):
         return f"{self.pair} {self.interval}"
@@ -515,10 +473,7 @@ class OrderBookSnapshot(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # exchange sequence id
-
-
+  
 # ==========================================================
 # Order Book Level
 # ==========================================================
@@ -543,9 +498,7 @@ class OrderBookLevel(models.Model):
         decimal_places=10,
     )
 
-    # TODO:
-    # level depth
-
+  
 
 # ==========================================================
 # Watchlist
@@ -595,12 +548,7 @@ class Alert(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # above/below
-    # email notification
-    # push notification
-    # webhook
-
+  
 
 # ==========================================================
 # Indicator Snapshot
@@ -655,10 +603,4 @@ class IndicatorSnapshot(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
-    # TODO:
-    # Bollinger Bands
-    # ATR
-    # VWAP
-    # ADX
-    # SuperTrend
-    # Ichimoku
+   

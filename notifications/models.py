@@ -58,12 +58,7 @@ class Notification(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # action_url
-    # icon
-    # metadata(JSON)
-    # expires_at
-
+    
     def __str__(self):
         return self.title
 
@@ -87,11 +82,7 @@ class NotificationTemplate(models.Model):
 
     active = models.BooleanField(default=True)
 
-    # TODO:
-    # html_body
-    # variables
-    # language
-
+    
     def __str__(self):
         return self.name
 
@@ -124,11 +115,7 @@ class NotificationPreference(models.Model):
 
     marketing = models.BooleanField(default=False)
 
-    # TODO:
-    # weekly_reports
-    # monthly_reports
-    # sound_alerts
-
+  
 
 # ==========================================================
 # Device Token
@@ -150,11 +137,7 @@ class DeviceToken(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # platform
-    # app_version
-    # last_seen
-
+   
 
 # ==========================================================
 # Email Queue
@@ -181,10 +164,7 @@ class EmailQueue(models.Model):
 
     sent_at = models.DateTimeField(null=True, blank=True)
 
-    # TODO:
-    # attachments
-    # retry_count
-    # error_message
+   
 
 
 # ==========================================================
@@ -212,12 +192,7 @@ class SMSQueue(models.Model):
 
     sent_at = models.DateTimeField(null=True, blank=True)
 
-    # TODO:
-    # provider
-    # retry_count
-    # delivery_report
-
-
+ 
 # ==========================================================
 # Push Queue
 # ==========================================================
@@ -243,11 +218,7 @@ class PushQueue(models.Model):
 
     sent_at = models.DateTimeField(null=True, blank=True)
 
-    # TODO:
-    # image
-    # deep_link
-    # click_action
-
+ 
 
 # ==========================================================
 # Notification Log
@@ -280,8 +251,3 @@ class NotificationLog(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # TODO:
-    # response_from_provider
-    # latency
-    # ip_address
-    # event_type

@@ -39,13 +39,7 @@ class DailyPortfolioSnapshot(models.Model):
     class Meta:
         unique_together = ("user", "snapshot_date")
 
-    # TODO:
-    # roi
-    # daily_return
-    # weekly_return
-    # monthly_return
-
-
+  
 # ==========================================================
 # Trade Statistics
 # ==========================================================
@@ -78,11 +72,6 @@ class TradeStatistics(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
-    # TODO:
-    # win_rate
-    # average_profit
-    # average_loss
-    # profit_factor
 
 
 # ==========================================================
@@ -123,12 +112,7 @@ class PerformanceMetrics(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
-    # TODO:
-    # beta
-    # alpha
-    # calmar_ratio
-    # expectancy
-
+  
 
 # ==========================================================
 # Market Statistics
@@ -163,11 +147,6 @@ class MarketStatistics(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
-    # TODO:
-    # market_cap
-    # circulating_supply
-    # dominance
-    # volatility_index
 
 
 # ==========================================================
@@ -192,9 +171,7 @@ class IndicatorHistory(models.Model):
 
     timestamp = models.DateTimeField()
 
-    # TODO:
-    # signal
-    # source_exchange
+ 
 
     def __str__(self):
         return f"{self.pair} - {self.indicator}"
@@ -254,11 +231,7 @@ class EquityCurve(models.Model):
 
     timestamp = models.DateTimeField()
 
-    # TODO:
-    # balance
-    # unrealized_pnl
-    # realized_pnl
-
+  
     def __str__(self):
         return f"{self.user} - {self.timestamp}"
 
@@ -292,7 +265,4 @@ class DrawdownHistory(models.Model):
 
     timestamp = models.DateTimeField()
 
-    # TODO:
-    # recovery_time
-    # duration
-    # drawdown_percentage
+  
