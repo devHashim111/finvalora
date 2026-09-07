@@ -1,0 +1,92 @@
+
+
+users/models.py — 8–10 models
+
+    CustomUser
+
+    UserProfile
+
+    UserPreference
+
+    UserSession
+
+    LoginHistory
+
+    APIKey
+
+    UserDevice
+
+    EmailVerification
+
+    PasswordReset
+
+finance/models.py — 15–20 models
+
+    Exchange
+
+    Asset
+
+    TradingPair
+
+    Wallet
+
+    Portfolio
+
+    Position
+
+    Order
+
+    Trade
+
+    Transaction
+
+    Candle
+
+    OrderBookSnapshot
+
+    Watchlist
+
+    Alert
+
+    IndicatorSnapshot
+
+    FeeSchedule
+
+    etc.
+
+analytics/models.py — 8–12 models
+
+    DailyPortfolioSnapshot
+
+    TradeStatistics
+
+    PerformanceMetrics
+
+    MarketStatistics
+
+    IndicatorHistory
+
+    StrategyPerformance
+
+    EquityCurve
+
+    DrawdownHistory
+
+notifications/models.py — 6–8 models
+
+    Notification
+
+    NotificationTemplate
+
+    NotificationPreference
+
+    DeviceToken
+
+    EmailQueue
+
+    SMSQueue
+
+    PushQueue
+
+    NotificationLog
+
