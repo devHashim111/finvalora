@@ -1,4 +1,83 @@
-Finvalora
+# Finvalora
+
+Finvalora is a backend-focused cryptocurrency trading platform designed to simulate the architecture and core workflows of a modern crypto exchange.
+
+The project combines a traditional REST API with a dedicated realtime service. The REST layer handles persistent application state and business operations, while the realtime layer is responsible for low-latency market and event streaming.
+
+The system is designed around two complementary backend services:
+* **Django + Django REST Framework** for authentication, users, wallets, trading operations, persistent data, and REST APIs.
+* **FastAPI** for asynchronous realtime communication, WebSocket connections, and event streaming through Redis.
+
+Finvalora is intended primarily as a backend engineering project and experimental trading platform. It can be used to explore exchange-style application architecture, asynchronous processing, WebSockets, background jobs, trading models, and API-driven frontend integration.
+
+---
+
+## Features
+
+### Authentication
+Finvalora provides the foundation for authenticated trading workflows, including:
+* User registration
+* User login
+* JWT-based authentication
+* Authenticated API access
+* User-associated wallet management
+
+Authentication is handled by the Django REST Framework service.
+
+### Wallet Management
+* Wallets are associated with users and provide the balance layer required by the trading system.
+* The wallet subsystem tracks balances that can be used when creating and executing trades.
+* Wallet provisioning occurs automatically as part of user registration so that a newly created account can immediately participate in the trading workflow.
+
+### Trading
+The trading subsystem models the core entities required for a cryptocurrency exchange. The platform supports:
+* Exchanges & Assets
+* Trading pairs
+* Wallets & Portfolios
+* Positions
+* Orders & Trades
+* Transactions
+* Candles & Order-book snapshots
+* Watchlists & Alerts
+* Indicator snapshots & Fee schedules
+
+Orders support common exchange-style operations such as market and limit orders. Database-level validation and application-level business logic maintain consistency between orders, trades, wallets, and balances.
+
+### Market Data
+Finvalora includes a realtime market-data pipeline designed to provide continuously updated information to connected clients:
+* Asset prices
+* OHLC candle information
+* Trading-pair information
+* Order-book snapshots
+* Technical indicator information
+* Other exchange events
+
+Background workers collect and process market information before publishing events to Redis.
+
+### Realtime WebSockets
+The FastAPI service provides WebSocket endpoints for clients needing realtime updates. Instead of requiring every client to repeatedly poll the REST API, connected clients subscribe to a WebSocket connection and receive events as they become available. This architecture keeps long-lived asynchronous connections separate from the traditional Django request/response lifecycle.
+
+### Background Processing
+Celery handles tasks that run independently of normal HTTP requests:
+* Periodic market-data processing
+* Scheduled data updates
+* Publishing events
+* Data aggregation
+
+Celery Beat manages scheduled jobs, while Celery workers execute queued tasks. Redis acts as the message broker and event transport between background workers and the realtime service.
+
+### API Documentation
+The Django REST Framework API is documented using `drf-spectacular`. This provides an OpenAPI schema that can be used with:
+* Swagger UI
+* OpenAPI-compatible clients
+* API testing tools
+* Frontend API integration and client generation
+
+---
+
+## Architecture
+
+Finvalora separates persistent application logic from realtime communication.Finvalora
 
 Finvalora is a backend-focused cryptocurrency trading platform designed to simulate the architecture and core workflows of a modern crypto exchange.
 
